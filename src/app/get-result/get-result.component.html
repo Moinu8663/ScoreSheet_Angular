@@ -1,0 +1,30 @@
+<div class="container text-center ">
+    <div class="row ">
+        <div class="col image">
+            1 of 2
+        </div>
+        <div class="col form ">
+            <div class="text-center px-5 ">
+                <h1 class="mt-5 text-primary-emphasis fs-1">GET RESULT</h1>
+                <div class="my-5 text-center px-5">
+                    <form [formGroup]="GetResultForm" (ngSubmit)="OnSubmit()">
+
+                        <mat-form-field class=" px-5">
+                            <mat-label>RollNo</mat-label>
+                            <input matInput type="number" placeholder="RollNo" formControlName="RollNo">
+                        </mat-form-field>
+
+                        <mat-form-field class=" px-5">
+                            <mat-label>Name</mat-label>
+                            <input matInput type="text" placeholder="Name" formControlName="Name">
+                        </mat-form-field>
+
+                          <pre></pre>
+
+                        <button class="btn btn-success" type="submit" [disabled]="!GetResultForm.valid">GET</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
