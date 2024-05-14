@@ -1,6 +1,39 @@
-<mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>Drawer content</mat-drawer>
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer mode="side" #drawer class="example-sidenav " class="px-5">
+        <h1 class="mt-5 text-primary-emphasis fs-1">Dashboard</h1>
+        <ul>
+            <li>
+                <button mat-button color="primary" routerLink="/Getresult">Get Result</button>
+            </li>
+            <li>
+              <button mat-button color="primary" routerLink="/Result">Result</button>
+          </li>
+          <li>
+            <button mat-button color="primary" routerLink="/Resultlist">Result List</button>
+            </li>
+            <li>
+                <button mat-button color="primary" routerLink="/Addscore">Add Score</button>
+            </li>
+            <li>
+                <button mat-button color="primary" routerLink="/Update">Update Score</button>
+            </li>
+            <li>
+                <button mat-button color="primary" routerLink="/Delete">Delete Score</button>
+            </li>
+        </ul>
+    </mat-drawer>
     <mat-drawer-content>
+        <div class="example-sidenav-content">
+            <button type="button" mat-button (click)="drawer.toggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </div>
         <router-outlet></router-outlet>
     </mat-drawer-content>
   </mat-drawer-container>
+  
+
+
+
+
+

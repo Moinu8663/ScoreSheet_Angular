@@ -6,61 +6,51 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-
-  constructor(private router:Router,private http:HttpClient) { }
-  isAuthenticated():boolean
-  {
-    if (sessionStorage.getItem('token')!==null) {
-      return true;
+  isreset!: boolean;
+  constructor(private router: Router, private http: HttpClient) { }
+  isAuthenticated(): boolean {
+    return !!sessionStorage.getItem('token');
   }
-  return false;
+  isReset(): boolean {
+    return this.isreset;
   }
 
-  canAccess(){
+  canAccess() {
     if (!this.isAuthenticated()) {
- 
-        this.router.navigate(['/Getresult']);
+
+      this.router.navigate(['/Getresult']);
     }
   }
-  canAuthenticate(){
+  canAuthenticate() {
     if (this.isAuthenticated()) {
-     
-      this.router.navigate(['/Home']);
+
+      this.router.navigate(['/Getresult']);
     }
   }
-//   register(First_name:string,Mobile_No:string,Password:string){
-       
-//     return this.http
-//      .post<{idToken:string}>(
-//        'https://localhost:7252/api/User/Register',
-//          {displayName:First_name,Mobile_No,Password}
-//      );
-//  }
+  ADD(RollNo: number, Name: string,) {
 
- storeToken(token:string){
-     sessionStorage.setItem('token',token);
- }
+    return this.http.post<{ idToken: string }>('https://localhost:7274/ScoreSheet/AddScore', { displayName: RollNo, Name });
+  }
 
- GET(RollNo:string,Name:string,){
-  
-     return this.http.post<{idToken:string}>(
-         'http://localhost:5103/ScoreSheet/GetResult',
-           {RollNo,Name}
-     ) ;
-     
- }
+  storeToken(token: string) {
+    sessionStorage.setItem('token', token);
+  }
 
+  GET(RollNo: string, Name: string,) {
 
- detail(){
-   let token = sessionStorage.getItem('token');
+    return this.http.post<{ idToken: string }>('http://localhost:5103/ScoreSheet/GetResult', { displayName: RollNo, Name });
+  }
 
-   return this.http.post<{scoresheets:Array<{RollNo:string,Name:string}>}>(
-       'http://localhost:5103/ScoreSheet/GetResult',
-       {idToken:token}
-   );
- }
+  Reset(){
+    this.isReset();
+   }
 
- removeToken(){
-   sessionStorage.removeItem('token');
- }
+  detail() {
+    const token = sessionStorage.getItem('token');
+    return this.http.post<{ scoresheets: Array<{ RollNo: string, Name: string }> }>('http://localhost:5103/ScoreSheet/GetResult',{ idToken: token });
+  }
+
+  removeToken() {
+    sessionStorage.removeItem('token');
+  }
 }

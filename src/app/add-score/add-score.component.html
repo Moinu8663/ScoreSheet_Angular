@@ -1,0 +1,43 @@
+<div class="container text-center sticky-lg-top">
+    <div class="row">
+      <div class="col image">
+        1 of 2
+      </div>
+      <div class="col form ">
+        <div class="text-center px-5 ">
+          <h1 class="mt-5 text-primary-emphasis fs-1">Add Score</h1>
+          <div class="my-5 text-center px-5">
+            <form [formGroup]="addscore" (ngSubmit)="onSubmit()">
+              <mat-form-field class=" px-5">
+                <mat-label>RollNo</mat-label>
+                <input matInput type="number" placeholder="RollNo" formControlName="RollNo">
+              </mat-form-field>
+  
+              <mat-form-field class=" px-5">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" placeholder="Name" formControlName="Name">
+              </mat-form-field>
+  
+              <mat-form-field class=" px-5">
+                <mat-label>Marks1</mat-label>
+                <input matInput type="number" placeholder="Marks1" formControlName="Marks1">
+              </mat-form-field>
+  
+              <mat-form-field class=" px-5">
+                <mat-label>Marks2</mat-label>
+                <input matInput type="number" placeholder="Marks2" formControlName="Marks2">
+              </mat-form-field>
+  
+              <mat-form-field class=" px-5">
+                <mat-label>Marks3</mat-label>
+                <input matInput type="number" placeholder="Marks3" formControlName="Marks3">
+              </mat-form-field>
+  
+              <button class="btn btn-success" type="submit" [disabled]="addscore.invalid">Submit</button>
+            </form>
+            <p>Already have a Score Sheet?<button mat-button color="primary"  routerLink="/Getresult">GetResult</button></p>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -9,14 +9,10 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class ResultModule { 
+export class ScoreModuleModule {
   RollNo!:number;
   Name!: string;
   Marks1!: number;
   Marks2!: number;
   Marks3!: number;
-  Total_Marks!:number;
-  Score!:number;
-  Grade!:string;
-  Result!:string
-}
+ }

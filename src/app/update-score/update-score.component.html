@@ -1,0 +1,38 @@
+<div class="container text-center sticky-lg-top">
+    <div class="row">
+      <div class="col image">
+        1 of 2
+      </div>
+      <div class="col form ">
+        <div class="text-center px-5 ">
+          <h1 class="mt-5 text-primary-emphasis fs-1">Update Score</h1>
+          <div class="my-5 text-center px-5">
+            <form [formGroup]="update" (ngSubmit)="Onupdate()">
+                  
+              <mat-form-field class="example-full-width">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" placeholder="Enter Your Name" formControlName="Name">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Marks1</mat-label>
+                <input matInput type="number" placeholder="Enter Your Marks1" formControlName="Marks1">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Marks2</mat-label>
+                <input matInput type="number" placeholder="Enter Your Marks2" formControlName="Marks2">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <mat-label>Marks3</mat-label>
+                <input matInput type="number" placeholder="Enter Your Marks3" formControlName="Marks3">
+              </mat-form-field>
+  
+              <button class=" px-5 btn btn-success" type="submit" [disabled]="update.invalid">Update</button>
+            </form>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

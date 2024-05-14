@@ -51,10 +51,11 @@ export class GetResultComponent implements OnInit {
           (response) => {
             console.log(response);
             localStorage.setItem("RollNo",data.RollNo);
-            this.GetResultForm.reset();
-            this.router.navigate(['/Result']);
-          }
-        )
+            
+          });
+          alert("Get Result Successfully")
+          this.GetResultForm.reset();
+          this.router.navigate(['/Result']);
       }
   }
 
